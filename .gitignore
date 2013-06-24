@@ -2,6 +2,6 @@
 
 # Package Files #
 *.jar
-!sqlite-jdbc-3.7.8-20111025.014814-1.jar #Except
+!lib/sqlite-jdbc-3.7.8-20111025.014814-1.jar #Except
 *.war
 *.ear
