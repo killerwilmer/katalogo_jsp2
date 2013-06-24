@@ -1,0 +1,74 @@
+/* 
+    Document   : indexProducto
+    Created on : 22-feb-2012, 14:17:49
+    Author     : usuarui
+    Description:
+    Purpose of the stylesheet follows.
+*/
+body{
+    margin: 0px;
+}
+
+.submenu{
+    width: 15%;
+    height: 550px;
+    background-image: -webkit-linear-gradient(right , rgb(58,119,138) 26%, rgb(20,80,133) 63%, rgb(19,33,105) 100%);
+    background-image: -moz-linear-gradient(right , rgb(58,119,138) 26%, rgb(20,80,133) 63%, rgb(19,33,105) 100%);
+    box-shadow: 1px 1px 15px black;
+    float: left;
+}
+
+div#menup ul {
+    list-style-type: none;
+    padding: 0px;
+    width: auto;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    margin-left: 15px;
+    padding-top: 13px;
+}
+
+#menup ul li {
+    background-color: #666;
+    margin-top: 15px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0 9px 8px -6px #4a4646;
+}
+
+#menup ul li a {
+    color: #ccc;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 7px 7px 7px 14px;
+}
+
+#menup ul li a:hover {
+    background: #000;
+    border-left: 10px solid #333;
+    color: #fff;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0 8px 6px -6px #2671f0;
+}
+
+.contenido{
+    overflow: auto;
+    background: #f7f7f7;
+}
+
+div#span{
+    background: #96b3a7;
+    text-align: center;
+    font-size: 24px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom:solid 1px #b7ddf2;
+    box-shadow: 0 9px 8px -6px #4a4646;
+}
+
+
+
