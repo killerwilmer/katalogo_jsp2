@@ -225,7 +225,18 @@ public class WSSincronizacion {
             }
             if (listaCategoriaAndroid.size() < listaLocal.size()) {
                 //mirar cual es el id mayor en listaCategoriaAndroid
-                int idMayor = listaCategoriaAndroid.size() + 1;
+                /* TODO
+                Nuevo metodo para encontrar el id mayor de las categorias
+                */
+                int idMayor = listaCategoriaAndroid.get(0).getId();
+                for (int i = 1; i < listaCategoriaAndroid.size(); i++) {
+                    Categoria cat = listaCategoriaAndroid.get(i);
+                    if (cat.getId() > idMayor) {
+                        idMayor = cat.getId();
+                    }
+                }
+                
+                //int idMayor = listaCategoriaAndroid.size() + 1;
                 /*int idMayor = listaCategoriaAndroid.get(0).getId();
                  for(int i=1;i<listaCategoriaAndroid.size();i++){
                  Categoria c = listaCategoriaAndroid.get(i);
