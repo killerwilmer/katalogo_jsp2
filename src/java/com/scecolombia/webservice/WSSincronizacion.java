@@ -28,8 +28,7 @@ public class WSSincronizacion {
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
-    
-    
+
     /**
      * Consulta los productos
      */
@@ -59,7 +58,7 @@ public class WSSincronizacion {
     @WebMethod(operationName = "sincronizarImagenes")
     public int sincronizarImagenes(@WebParam(name = "idsImagenes") String[] idsImagenes, @WebParam(name = "fechasCategorias") String[] fechasCategorias) {
         //listaLocal de Categorias         
-       //listaLocal de Categorias         
+        //listaLocal de Categorias         
         ArrayList<Imagen> listaImagenesAndroid = null;
         ArrayList<Object> listaLocal = null;
         ArrayList<Imagen> listaImagenesActualizar = null;
@@ -120,8 +119,20 @@ public class WSSincronizacion {
                 }
             }
             if (listaImagenesAndroid.size() < listaLocal.size()) {
+
+                //codigo nuevo
                 //mirar cual es el id mayor en listaCategoriaAndroid
-                int idMayor = listaImagenesAndroid.size() + 1;
+                int idMayor = listaImagenesAndroid.get(0).getId();
+                for (int i = 1; i < listaImagenesAndroid.size(); i++) {
+                    Imagen img = listaImagenesAndroid.get(i);
+                    if (img.getId() > idMayor) {
+                        idMayor = img.getId();
+                    }
+                }
+                //
+
+                //mirar cual es el id mayor en listaCategoriaAndroid
+                //int idMayor = listaImagenesAndroid.size() + 1;
                 /*int idMayor = listaCategoriaAndroid.get(0).getId();
                  for(int i=1;i<listaCategoriaAndroid.size();i++){
                  Categoria c = listaCategoriaAndroid.get(i);
@@ -146,14 +157,14 @@ public class WSSincronizacion {
 
         Imagen paraAct = new Imagen();
         paraAct.crearParaActualizarEnAndroid(listaImagenesActualizar);
-        
+
         //return listaImagenesActualizar;
         return listaImagenesActualizar.size();
     }
 
     @WebMethod(operationName = "sincronizarCategorias")
     public ArrayList<Categoria> sincronizarCategorias(@WebParam(name = "idsCategorias") String[] idsCategorias, @WebParam(name = "fechasCategorias") String[] fechasCategorias) {
-       //listaLocal de Categorias         
+        //listaLocal de Categorias         
         ArrayList<Categoria> listaCategoriaAndroid = null;
         ArrayList<Object> listaLocal = null;
         ArrayList<Categoria> listaCategoriaActualizar = null;
@@ -234,7 +245,7 @@ public class WSSincronizacion {
         return listaCategoriaActualizar;
     }
 
-     @WebMethod(operationName = "sincronizarImagenProducto")
+    @WebMethod(operationName = "sincronizarImagenProducto")
     public ArrayList<ImagenProducto> sincronizarImagenProducto(@WebParam(name = "idCategoria") int idCategoria) {
 
         ArrayList<ImagenProducto> listaImagenesProductos = null;
@@ -247,7 +258,7 @@ public class WSSincronizacion {
             listaImagenesProductos = new ArrayList<ImagenProducto>();
 
             for (int i = 0; i < listaLocal.size(); i++) {
-                ImagenProducto miImagenP = (ImagenProducto)listaLocal.get(i);
+                ImagenProducto miImagenP = (ImagenProducto) listaLocal.get(i);
                 listaImagenesProductos.add(miImagenP);
             }
 
@@ -257,28 +268,27 @@ public class WSSincronizacion {
 
         return listaImagenesProductos;
     }
-     
-     
-     @WebMethod(operationName = "sincronizarUsuarios")
-     public ArrayList<Usuario> sincronizarUsuarios(){
-         ArrayList<Usuario> listaUsuarios = null;
-         ArrayList<Object>  listaLocal = null;
-         
-         try{
-             Usuario usuLocal = new Usuario();
-             listaLocal = new ArrayList<Object>();
-             listaLocal = usuLocal.consultarTodos();
-             listaUsuarios = new ArrayList<Usuario>();
-             
-             for(int i=0;i<listaLocal.size();i++){
-                 Usuario usu = (Usuario)listaLocal.get(i);
-                 listaUsuarios.add(usu);
-             }
-         }
-         catch(Exception ex){
-             System.out.println(ex.getMessage());
-         }
-         
-         return listaUsuarios;
-     }
+
+    @WebMethod(operationName = "sincronizarUsuarios")
+    public ArrayList<Usuario> sincronizarUsuarios() {
+        ArrayList<Usuario> listaUsuarios = null;
+        ArrayList<Object> listaLocal = null;
+
+        try {
+            Usuario usuLocal = new Usuario();
+            listaLocal = new ArrayList<Object>();
+            listaLocal = usuLocal.consultarTodos();
+            listaUsuarios = new ArrayList<Usuario>();
+
+            for (int i = 0; i < listaLocal.size(); i++) {
+                Usuario usu = (Usuario) listaLocal.get(i);
+                listaUsuarios.add(usu);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return listaUsuarios;
+    }
+
 }
