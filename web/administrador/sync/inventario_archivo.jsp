@@ -32,8 +32,8 @@
         <h1>Archivo Inventario</h1>
         <%
             String contentType = request.getContentType();
-            String ruta = "/var/www/katalogokumbia/default/app/test/sqlite/imports/import_inventario_katalogo.sh";
-            String ruta2 = "/var/www/katalogokumbia/default/app/test/sqlite/imports/import_inventario_aux.sh";
+            String ruta = "/var/www/katalogo_php/default/app/test/sqlite/imports/import_inventario_katalogo.sh";
+            String ruta2 = "/var/www/katalogo_php/default/app/test/sqlite/imports/import_inventario_aux.sh";
 
             if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
                 String miLineaLimpia = "";
@@ -96,7 +96,7 @@
                     idCliente++;
                 }
 
-                String fileName = "/var/www/katalogokumbia/default/app/test/sqlite/csvs/inventario.csv";
+                String fileName = "/var/www/katalogo_php/default/app/test/sqlite/csvs/inventario.csv";
                 try {
                     FileWriter writer = new FileWriter(fileName);
                     writer.append(miLineaLimpia);
